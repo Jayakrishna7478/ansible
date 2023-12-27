@@ -2,10 +2,10 @@
 - name: variables form PLAY level
   hosts: localhost
   vars:
-    Coures: "DevOps"
+    Course: "DevOps"
     Trainer: "Siva"
     Duration: "110HRS"
   tasks:
-  - name: check bariables
+  - name: check variables
     ansiable.builtin.debug:
       msg: "Hi I am learning {{Coures}}, Trainer is {{Trainer}}, Duration is {{Duration}}"
