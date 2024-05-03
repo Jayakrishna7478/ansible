@@ -1,13 +1,14 @@
-- name: install and run nginx
-  hosts: localhost
-  connection: local
-  become: yes #it will get root access
+- name: mongodb
+  hosts: local
+  become: yes
+
   tasks:
-  - name: install nginx package
+  - name: copy mongodb repo
+    ansible.builtin.copy:
+      src: mongodb.repo
+      dest: /etc/yum.repos.d/mongodb.repo
+
+  - name: install mongodb
     ansible.builtin.package:
-      name: nginx
-      state: present
-  - name: run nginx
-    ansible.builtin.service:
-      name: nginx
-      state: started
+    name: mongodn-org
+    state: present
